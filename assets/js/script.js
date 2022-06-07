@@ -1,9 +1,11 @@
 // Identify HTML elements as objects
-var buttonEl = document.querySelector("#save-task");
+var formEl = document.querySelector("#task-form");
 var tasksToDoEl = document.querySelector("#tasks-to-do");
 
 // Function to create a new task item on a button click
-var createTaskHandler = function () {
+var createTaskHandler = function (event) {
+    // Tell the browswer not to follow its default behavior of updating the page
+    event.preventDefault();
     // Create a list item
     var listItemEl = document.createElement("li");
     // Assign a class name to apply CSS style to the item created
@@ -15,4 +17,4 @@ var createTaskHandler = function () {
 };
 
 // ON CLICK
-buttonEl.addEventListener("click", createTaskHandler);
+formEl.addEventListener("submit", createTaskHandler);
