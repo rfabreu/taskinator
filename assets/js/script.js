@@ -3,12 +3,22 @@ var formEl = document.querySelector("#task-form");
 var tasksToDoEl = document.querySelector("#tasks-to-do");
 
 
-// Function to target and store elements and values from the HTML document
+// Function to handle form behavior
 var taskFormHandler = function (event) {
     // Tell the browswer not to follow its default behavior of updating the page
     event.preventDefault();
+    // Variables to target and store elements and values from the HTML document
     var taskNameInput = document.querySelector("input[name='task-name']").value;
     var taskTypeInput = document.querySelector("select[name='task-type']").value;
+
+    // check if input values are empty string
+    if (!taskNameInput || !taskTypeInput) {
+        alert("You need to fill out the task form!");
+        return false;
+    }
+
+    // reset the form fields after each entry is complete
+    formEl.reset();
 
     // package up date as an object
     var taskDataObj = {
