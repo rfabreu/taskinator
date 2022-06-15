@@ -233,9 +233,12 @@ var loadTasks = function () {
         return false;
     }
     savedTasks = JSON.parse(savedTasks);
-    console.log(tasks);
+    console.log(savedTasks);
+    // loop through savedTasks array
     for (var i = 0; i < savedTasks.length; i++) {
+        // pass each task object into the `createTaskEl()` function
         createTaskEl(savedTasks[i]);
+        console.log(savedTasks[i]);
     }
 };
 // ON CLICK – for changing the task status
